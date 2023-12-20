@@ -9,5 +9,7 @@ def main():
     parser.add_argument('-f FORMAT, --format FORMAT set format of output')
     args = parser.parse_args()
 
+generate_diff
+
 if __name__ == '__main__':
     main()

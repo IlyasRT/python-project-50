@@ -1,6 +1,8 @@
+__pycache__
 .venv
 .pyc
 dist/
 __pycache__/
 __pycache__
+*.pyc
 
