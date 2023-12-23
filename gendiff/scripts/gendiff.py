@@ -2,13 +2,15 @@ import argparse
 import json
 from gendiff.diff_finder import generate_diff
 
+
 def main():
     parser = argparse.ArgumentParser(description='Compares two configuration files and shows a difference.')
     parser.add_argument('first_file')
     parser.add_argument('second_file')
-    parser.add_argument('-f FORMAT, --format FORMAT set format of output')
+    parser.add_argument('-f', '--format', help='set format of output')
     args = parser.parse_args()
-    print(generate_diff(path_to_file1,path_to_file2))
+    diff = generate_diff(args.first_file, args.second_file)
+    print(diff)
 
 
 if __name__ == '__main__':

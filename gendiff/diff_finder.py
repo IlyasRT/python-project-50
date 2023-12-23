@@ -1,3 +1,6 @@
+import json
+
+
 def generate_diff(path_to_file1, path_to_file2):
     content_file_1 = json.load(open(path_to_file1))
     content_file_2 = json.load(open(path_to_file2))
