@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+
+
 import argparse
 import json
 from gendiff.diff_finder import generate_diff
