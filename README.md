@@ -10,5 +10,6 @@
 
 
 ### Examples of how the program works:
-[![asciicast](https://asciinema.org/a/14.png)](https://asciinema.org/a/EbrJeGbIPZPd54GYxw5O6ktNn)
+[![asciicast](https://asciinema.org/a/EbrJeGbIPZPd54GYxw5O6ktNn.svg)](https://asciinema.org/a/EbrJeGbIPZPd54GYxw5O6ktNn)
+
 
