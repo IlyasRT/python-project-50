@@ -1,6 +1,6 @@
 import json
 from gendiff.diff_finder import generate_diff
-from tests.expected_results import result
+from tests.fixtures.expected_results import result
 
 
 
