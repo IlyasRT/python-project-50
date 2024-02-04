@@ -20,4 +20,17 @@ def generate_diff(path_to_file1, path_to_file2):
     for i in key_not_in_content_file_1:
         if i in content_file_2:
             content_file_3[" + "+str(i)] = content_file_2[i]
-    return content_file_3
+
+    #return content_file_3
+    content_file_4 = json.dumps(content_file_3)
+    if 'true' in content_file_4:
+        content_file_4 = content_file_4.replace('true','True')
+    if 'false' in content_file_4:
+        content_file_4 = content_file_4.replace('false', 'False')
+    return content_file_4
+    '''
+    data = {'name': 'Russia', 'phone_code': 7, 'capital': 'Moscow', 'currency': 'RUB'}
+    json_data = json.dumps(data) # сериализуем словарь data в json строку
+    print(type(json_data))
+    print(json_data)
+    '''
