@@ -11,15 +11,17 @@ def test_generate_diff():
     assert generate_diff('./tests/fixtures/file1.json', './tests/fixtures/file2.json') == result
 '''
 
-'''
-Вариант 1 - для полного сравнения мешают двойные кавычки "{ перед знаком
+
+#Вариант 1 - для полного сравнения мешают двойные кавычки  перед знаком {
 def test_generate_diff():
     with open("./tests/fixtures/expected_results.txt", 'r', encoding='utf8') as file:
         result = file.read().strip('\n')
         assert generate_diff('./tests/fixtures/file1.json', './tests/fixtures/file2.json') == result
-'''
 
+'''
+Вариант 2 - не прошел тесты понял позже что json.load используется только при открытии файлов в вида *.json
 
 def test_generate_diff():
     result = json.load(open("./tests/fixtures/expected_results.txt")) #  загружает json и выгружает в виде строки, но тоже не проходит тесты
     assert generate_diff('./tests/fixtures/file1.json', './tests/fixtures/file2.json') == result
+'''
