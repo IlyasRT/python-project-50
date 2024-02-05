@@ -1,9 +1,15 @@
 import json
+from gendiff.parser import parse_data_from_file
+
 
 
 def generate_diff(path_to_file1, path_to_file2):
-    content_file_1 = json.load(open(path_to_file1))
-    content_file_2 = json.load(open(path_to_file2))
+    # print('контрольная точка --> вход в generate_diff')
+    content_file_1 = parse_data_from_file(path_to_file1)
+    content_file_2 = parse_data_from_file(path_to_file2)
+    # print('content_file_1=',content_file_1)
+    # print('content_file_2=',content_file_2)
+    #content_file_2 = json.load(open(path_to_file2))
     content_file_3 = {}
     for k, v in sorted(content_file_1.items()):
         if k not in content_file_2:
