@@ -11,7 +11,7 @@ from gendiff.parser import parse_data_from_file
 def main():
     args = get_parser_args()
     # print('args=',args)
-    diff = generate_diff(args.first_file, args.second_file)
+    diff = generate_diff(args.first_file, args.second_file, args.format)
     # print('контрольная точка --> прошел определение функции diff')
     print(diff)
 

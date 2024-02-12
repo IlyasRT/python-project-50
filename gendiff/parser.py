@@ -1,6 +1,6 @@
 import os
 import json
-#import yaml
+import yaml
 
 def get_file_extension(file_path):
     file_name, file_extension = os.path.splitext(file_path)
