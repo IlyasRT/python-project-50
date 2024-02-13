@@ -2,7 +2,7 @@
 
 
 from gendiff.cli import get_parser_args
-from gendiff.diff_finder import generate_diff
+from gendiff.generate_diff import generate_diff
 
 
 def main():
