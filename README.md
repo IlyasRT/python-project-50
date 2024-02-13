@@ -11,3 +11,5 @@
 
 ### Examples of how the program works:
 [![asciicast](https://asciinema.org/a/EbrJeGbIPZPd54GYxw5O6ktNn.svg)](https://asciinema.org/a/EbrJeGbIPZPd54GYxw5O6ktNn)
+
+[![asciicast](https://asciinema.org/a/R8iBYiXytALvOPoxWuZlp7WQK.svg)](https://asciinema.org/a/R8iBYiXytALvOPoxWuZlp7WQK)
