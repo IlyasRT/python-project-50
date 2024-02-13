@@ -1,4 +1,4 @@
-def to_add (key, value):
+def to_add(key, value):
     return {
         'action': 'added',
         'name': key,
@@ -12,7 +12,6 @@ def to_delete(key, value):
         'name': key,
         'old_value': value
     }
-
 
 
 def to_unchanged(key, value):
@@ -46,14 +45,9 @@ def generate(data1, data2):
     added = data2.keys() - data1.keys()
     deleted = data1.keys() - data2.keys()
     diff = []
-
-
-
     for key in keys:
         value1 = data1.get(key)
         value2 = data2.get(key)
-
-
         if key in added:
             diff.append(to_add(key, value2))
         elif key in deleted:
@@ -65,6 +59,4 @@ def generate(data1, data2):
         else:
             diff.append(to_unchanged(key, value1))
     sorted_diff = sorted(diff, key=lambda x: x['name'])
-
-
     return sorted_diff
