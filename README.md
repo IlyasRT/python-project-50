@@ -9,8 +9,11 @@ Download the game and install from root directory
 
 ### How to run
 Place the two files being compared in the tests/fixtures folder and type one of the commands: 
+
 gendiff .tests/fixtures/filepath1.json .tests/fixtures/filepath1.json -f stylish
+
 gendiff .tests/fixtures/filepath1.json .tests/fixtures/filepath1.json -f plain
+
 gendiff .tests/fixtures/filepath1.json .tests/fixtures/filepath1.json -f json
 
 
