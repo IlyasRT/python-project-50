@@ -1,3 +1,19 @@
+### Difference generator:
+A difference generator is a program that determines the difference between two data structures.
+
+Supports different input formats: yaml, json
+Generating a report in the form of plain text, stylish and json
+
+### How to install
+Download the game and install from root directory
+
+### How to run
+Place the two files being compared in the tests/fixtures folder and type one of the commands: 
+gendiff .tests/fixtures/filepath1.json .tests/fixtures/filepath1.json -f stylish
+gendiff .tests/fixtures/filepath1.json .tests/fixtures/filepath1.json -f plain
+gendiff .tests/fixtures/filepath1.json .tests/fixtures/filepath1.json -f json
+
+
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/IlyasRT/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/IlyasRT/python-project-50/actions)
 
