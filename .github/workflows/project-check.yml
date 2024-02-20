@@ -27,7 +27,7 @@ jobs:
         run: |
           # make check
           # make lint - добавил т.к. видел как решение в гите по аналог ошибке
-        run: make test
+          make test
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v5.0.0
         if: github.ref_name == 'main'
