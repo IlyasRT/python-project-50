@@ -72,7 +72,9 @@ def make_stylish_result(diff, spaces_count=2):
             case "added":
                 lines.append(f"{indent}{ADD}{key_name}: {new_value}")
             case "nested":
-                children = make_stylish_result(item.get("children"), spaces_count + 4)
+                children = make_stylish_result(
+                    item.get("children"), spaces_count + 4
+                )
                 lines.append(f"{indent}{NONE}{key_name}: {children}")
         '''
         if action == "unchanged":
