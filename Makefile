@@ -6,6 +6,9 @@ gendiff:
 
 test:
 	poetry run pytest
+	
+test-coverage:
+	poetry run pytest --cov
 
 build:
 	poetry build
