@@ -19,5 +19,5 @@ package-install:
 make check:
 	poetry run flake8
 
-test:
+make test:
         poetry run pytest
