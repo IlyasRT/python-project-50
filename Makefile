@@ -17,7 +17,7 @@ make check:
 	poetry run flake8
 
 make test:
-        poetry run pytest
+	poetry run pytest
 
 test-coverage:
 	poetry run coverage report
