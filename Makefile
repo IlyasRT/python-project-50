@@ -3,9 +3,6 @@ install:
 	
 gendiff:
 	poetry run gendiff
-
-test:
-	poetry run pytest
 	
 test-coverage:
 	poetry run pytest --cov=gendiff --cov-report xml
@@ -19,5 +16,8 @@ publish:
 package-install:
 	python3 -m pip install --user dist/*.whl
 	
-make lint:
+make check:
 	poetry run flake8
+        poetry run pytest
+
+        
