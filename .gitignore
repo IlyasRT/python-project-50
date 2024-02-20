@@ -3,6 +3,7 @@ __pycache__
 .pyc
 dist/
 __pycache__/
-__pycache__
 *.pyc
-
+test/
+.pytest_cache/
+*.cast
