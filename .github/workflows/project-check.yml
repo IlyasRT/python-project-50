@@ -25,10 +25,7 @@ jobs:
           make install
       - name: Run linter and pytest
         run: |
-          # make check
-          make lint 
-          # - добавил т.к. видел как решение в гите по аналог ошибке
-          # make test
+          make check
       - name: Run tests
         run: make test
       - name: Test & publish code coverage
