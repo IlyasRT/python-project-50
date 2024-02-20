@@ -27,7 +27,7 @@ jobs:
         run: |
           make check
       - name: Run tests
-        run: make test
+        run: test
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v5.0.0
         if: github.ref_name == 'main'
