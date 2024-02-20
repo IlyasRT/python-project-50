@@ -4,12 +4,6 @@ install:
 gendiff:
 	poetry run gendiff
 
-test:
-	poetry run pytest
-	
-test-coverage:
-	poetry run pytest --cov=gendiff --cov-report xml
-
 build:
 	poetry build
 	
@@ -21,3 +15,9 @@ package-install:
 	
 make lint:
 	poetry run flake8
+
+test:
+	poetry run pytest
+
+make test-coverage:
+	poetry run coverage report
