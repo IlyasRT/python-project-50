@@ -3,9 +3,6 @@ install:
 	
 gendiff:
 	poetry run gendiff
-	
-test-coverage:
-	poetry run coverage report
 
 build:
 	poetry build
@@ -21,3 +18,6 @@ make check:
 
 make test:
         poetry run pytest
+
+test-coverage:
+	poetry run coverage report
