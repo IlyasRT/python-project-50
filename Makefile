@@ -16,7 +16,7 @@ package-install:
 make check:
 	poetry run flake8
 
-make test:
+test:
 	poetry run pytest
 
 make test-coverage:
