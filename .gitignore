@@ -1,9 +1,9 @@
 __pycache__
-.venv
+.venv/
 .pyc
 dist/
 __pycache__/
 *.pyc
-test/
+tests/
 .pytest_cache/
 *.cast
