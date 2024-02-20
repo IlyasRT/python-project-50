@@ -26,8 +26,6 @@ jobs:
       - name: Run linter and pytest
         run: |
           make check
-          # make check - удалил
-          # make lint
           # make lint - добавил т.к. видел как решение в гите по аналог ошибке
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v5.0.0
