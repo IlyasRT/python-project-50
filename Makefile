@@ -5,7 +5,6 @@ gendiff:
 	poetry run gendiff
 	
 test-coverage:
-        poetry run coverage run -m pytest
 	poetry run coverage report
 
 build:
