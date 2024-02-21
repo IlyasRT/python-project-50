@@ -24,9 +24,6 @@ def test_generate_diff():
 ])
 
 
-from gendiff.generator_diff import generate_diff
-
-
 def test_generate_stylish():
     diff_json_stylish = generate_diff(
         "tests/fixtures/file-1.json", "tests/fixtures/file-2.json", "stylish"
