@@ -42,17 +42,6 @@ def test_generate_stylish():
         assert diff_yml_stylish == result_stylish
 
 
-'''
-    result_stylish = open(
-        "./tests/fixtures/expected_results_stylish.txt"
-    ).read()
-'''
-'''
-    assert diff_json_stylish == result_stylish
-    assert diff_yml_stylish == result_stylish
-'''
-
-
 def test_generate_plain():
     diff_json_plain = generate_diff(
         "./tests/fixtures/file-1.json", "./tests/fixtures/file-2.json", "plain"
@@ -81,12 +70,3 @@ def test_generate_json():
         result_json = file.read().strip('\n')
         assert diff_json_json == result_json
         assert diff_yml_json == result_json
-
-
-'''
-result_json = open(
-    "./tests/fixtures/expected_results_json.txt"
-).read()
-assert diff_json_json == result_json
-assert diff_yml_json == result_json
-'''
