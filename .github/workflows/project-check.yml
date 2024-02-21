@@ -21,7 +21,7 @@ jobs:
           pip install poetry
           make install
       - name: Run linter
-        run: lint
+        run: make lint
       - name: Run tests
         run: test
       - name: Publish code coverage stat
