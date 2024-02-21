@@ -13,11 +13,11 @@ publish:
 package-install:
 	python3 -m pip install --user dist/*.whl
 	
-make lint:
+lint:
 	poetry run flake8
 
-make test:
+test:
 	poetry run pytest
 
-make test-coverage:
+test-coverage:
 	poetry run coverage report
