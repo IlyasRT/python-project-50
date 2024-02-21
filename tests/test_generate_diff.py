@@ -14,7 +14,7 @@ def test_generate_diff():
         ) == result
 '''
 
-
+'''
 @pytest.mark.parametrize('path_to_file1, path_to_file2, formatter', [
     ('file-1.json', 'file-2.json', 'stylish'),
     ('file-1.yml', 'file-2.yml', 'stylish'),
@@ -23,43 +23,61 @@ def test_generate_diff():
     ('file-1.json', 'file-2.json', 'json'),
     ('file-1.yml', 'file-2.yml', 'json')
 ])
+'''
 def test_generate_stylish():
-    diff_json_stylish = generate_diff(
-        "tests/fixtures/file-1.json", "tests/fixtures/file-2.json", "stylish"
-    )
+    diff_json_stylish = generate_diff("./tests/fixtures/file-1.json", "./tests/fixtures/file-2.json", "stylish")
     diff_yml_stylish = generate_diff(
-        "tests/fixtures/file-1.yml", "tests/fixtures/file-2.yml", "stylish"
+        "./tests/fixtures/file-1.yml", "./tests/fixtures/file-2.yml", "stylish"
     )
-    result_stylish = open("tests/fixtures/expected_results_stylish.txt").read()
-
+    with open(
+        "./tests/fixtures/expected_results_stylish.txt", 'r', encoding='utf8'
+    ) as file:
+        result_stylish = file.read().strip('\n')
+        assert diff_json_stylish == result_stylish
+        assert diff_yml_stylish == result_stylish
+        
+    '''   
+    result_stylish = open("./tests/fixtures/expected_results_stylish.txt").read()
+    '''
+    '''
     assert diff_json_stylish == result_stylish
-    assert diff_yaml_stylish == result_stylish
     assert diff_yml_stylish == result_stylish
+    '''
 
 
 def test_generate_plain():
     diff_json_plain = generate_diff(
-        "tests/fixtures/file-1.json", "tests/fixtures/file-2.json", "plain"
+        "./tests/fixtures/file-1.json", "./tests/fixtures/file-2.json", "plain"
     )
     diff_yml_plain = generate_diff(
-        "tests/fixtures/file-1.yml", "tests/fixtures/file-2.yml", "plain"
+        "./tests/fixtures/file-1.yml", "./tests/fixtures/file-2.yml", "plain"
     )
-    result_plain = open("tests/fixtures/expected_results_plain.txt").read()
-
-    assert diff_json_plain == result_plain
-    assert diff_yaml_plain == result_plain
-    assert diff_yml_plain == result_plain
+    with open(
+        "./tests/fixtures/expected_results_plain.txt", 'r', encoding='utf8'
+    ) as file:
+        result_plain = file.read().strip('\n')
+        assert diff_json_plain == result_plain
+        assert diff_yml_plain == result_plain
 
 
 def test_generate_json():
     diff_json_json = generate_diff(
-        "tests/fixtures/file-1.json", "tests/fixtures/file-2.json", "json"
+        "./tests/fixtures/file-1.json", "./tests/fixtures/file-2.json", "json"
     )
     diff_yml_json = generate_diff(
-        "tests/fixtures/file-1.yml", "tests/fixtures/file-2.yml", "json"
+        "./tests/fixtures/file-1.yml", "./tests/fixtures/file-2.yml", "json"
     )
-    result_json = open("tests/fixtures/expected_results_json.txt").read()
+    with open(
+        "./tests/fixtures/expected_results_json.txt", 'r', encoding='utf8'
+    ) as file:
+        result_json = file.read().strip('\n')
+        assert diff_json_json == result_json
+        assert diff_yml_json == result_json
+        
+        '''
+        result_json = open("./tests/fixtures/expected_results_json.txt").read()
+        
+        assert diff_json_json == result_json
+        assert diff_yml_json == result_json
+        '''
 
-    assert diff_json_json == result_json
-    assert diff_yaml_json == result_json
-    assert diff_yml_json == result_json
