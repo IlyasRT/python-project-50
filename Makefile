@@ -16,7 +16,7 @@ package-install:
 make lint:
 	poetry run flake8
 
-test:
+make test:
 	poetry run pytest
 
 make test-coverage:
