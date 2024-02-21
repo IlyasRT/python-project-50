@@ -23,7 +23,7 @@ jobs:
       - name: Run linter
         run: make lint
       - name: Run tests
-        run: test
+        run: make test
       - name: Publish code coverage stat
         uses: paambaati/codeclimate-action@v5.0.0
         if: github.ref_name == 'main'
