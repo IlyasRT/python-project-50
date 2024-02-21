@@ -1,8 +1,8 @@
 from gendiff.generate_diff import generate_diff
 import pytest
-import os
+# import os
 
-''' 
+'''
 def test_generate_diff():
     with open(
         "./tests/fixtures/expected_results.txt", 'r', encoding='utf8'
@@ -13,7 +13,8 @@ def test_generate_diff():
             './tests/fixtures/file2.json', 'stylish'
         ) == result
 '''
-        
+
+
 @pytest.mark.parametrize('file_1_name, file_2_name, formatter', [
     ('file-1.json', 'file-2.json', 'stylish'),
     ('file-1.yml', 'file-2.yml', 'stylish'),
@@ -22,8 +23,6 @@ def test_generate_diff():
     ('file-1.json', 'file-2.json', 'json'),
     ('file-1.yml', 'file-2.yml', 'json')
 ])
-
-
 def test_generate_stylish():
     diff_json_stylish = generate_diff(
         "tests/fixtures/file-1.json", "tests/fixtures/file-2.json", "stylish"
