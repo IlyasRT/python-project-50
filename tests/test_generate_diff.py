@@ -71,7 +71,7 @@ def test_generate_json():
     diff_yml_json = generate_diff(
         "tests/fixtures/file-1.yml", "tests/fixtures/file-2.yml", "json"
     )
-    result_json = open("tests/fixtures/expected_results_json.txt).read()
+    result_json = open("tests/fixtures/expected_results_json.txt").read()
 
     assert diff_json_json == result_json
     assert diff_yaml_json == result_json
