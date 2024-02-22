@@ -20,4 +20,7 @@ test:
 	poetry run pytest
 
 test-coverage:
+	poetry run coverage run -m pytest
+	poerty run coverage xml
 	poetry run coverage report
+	# poetry run coverage report
