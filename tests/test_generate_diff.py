@@ -28,14 +28,14 @@ def test_generate_diff():
 
 def test_generate_stylish():
     diff_json_stylish = generate_diff(
-        "tests/fixtures/file-1.json",
-        "tests/fixtures/file-2.json", "stylish"
+        "./tests/fixtures/file-1.json",
+        "./tests/fixtures/file-2.json", "stylish"
     )
     diff_yml_stylish = generate_diff(
-        "tests/fixtures/file-1.yml", "./tests/fixtures/file-2.yml", "stylish"
+        "./tests/fixtures/file-1.yml", "./tests/fixtures/file-2.yml", "stylish"
     )
     with open(
-        "tests/fixtures/expected_results_stylish.txt", 'r', encoding='utf8'
+        "./tests/fixtures/expected_results_stylish.txt", 'r', encoding='utf8'
     ) as file:
         result_stylish = file.read().strip('\n')
         assert diff_json_stylish == result_stylish
