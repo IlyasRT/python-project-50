@@ -2,19 +2,30 @@ from gendiff.generate_diff import generate_diff
 # import pytest
 # import os
 
-
-
-@pytest.mark.parametrize('path_to_file1, path_to_file2, expected_result', [
-    ('./tests/fixtures/file-1.json', './tests/fixtures/file-2.json', 'expected_results_stylish.txt'),
-    ('./tests/fixtures/file-1.yml', './tests/fixtures/file-2.yml', 'expected_results_stylish.txt'),
-    ('./tests/fixtures/file-1.json', './tests/fixtures/file-2.json', 'expected_results_plain.txt'),
-    ('./tests/fixtures/file-1.yml', './tests/fixtures/file-2.yml', 'expected_results_plain.txt'),
-    ('./tests/fixtures/file-1.json', './tests/fixtures/file-2.json', 'expected_results_json.txt'),
-    ('./tests/fixtures/file-1.yml', './tests/fixtures/file-2.yml', 'expected_results_json.txt')
-])
-
+'''
+def test_generate_diff():
+    with open(
+        "./tests/fixtures/expected_results.txt", 'r', encoding='utf8'
+    ) as file:
+        result = file.read().strip('\n')
+        assert generate_diff(
+            './tests/fixtures/file1.json',
+            './tests/fixtures/file2.json', 'stylish'
+        ) == result
+'''
 
 '''
+@pytest.mark.parametrize('path_to_file1, path_to_file2, formatter', [
+    ('./tests/fixtures/file-1.json', './tests/fixtures/file-2.json', 'stylish'),
+    ('./tests/fixtures/file-1.yml', './tests/fixtures/file-2.yml', 'stylish'),
+    ('./tests/fixtures/file-1.json', './tests/fixtures/file-2.json', 'plain'),
+    ('./tests/fixtures/file-1.yml', './tests/fixtures/file-2.yml', 'plain'),
+    ('./tests/fixtures/file-1.json', './tests/fixtures/file-2.json', 'json'),
+    ('./tests/fixtures/file-1.yml', './tests/fixtures/file-2.yml', 'json')
+])
+'''
+
+
 def test_generate_stylish():
     diff_json_stylish = generate_diff(
         "./tests/fixtures/file-1.json",
@@ -29,12 +40,7 @@ def test_generate_stylish():
         result_stylish = file.read().strip('\n')
         assert diff_json_stylish == result_stylish
         assert diff_yml_stylish == result_stylish
-'''
 
-def test_gendiff_stylish(path_to_file1, path_to_file2, expected_result):
-    diff = generate_diff(file1, file2, format="stylish")
-    assert diff == read_file(expected_result)
-'''
 
 def test_generate_plain():
     diff_json_plain = generate_diff(
