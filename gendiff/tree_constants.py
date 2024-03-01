@@ -1,7 +1,0 @@
-INDENT = '  '
-ADDED = '+'
-REMOVED = '-'
-CHANGED = 'changed'
-UNCHANGED = ' '
-NESTED = 'nested'
-COMPLEX = '[complex value]'
