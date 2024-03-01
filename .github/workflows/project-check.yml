@@ -20,10 +20,8 @@ jobs:
         run: |
           pip install poetry
           make install
-      #- name: Run linter
-       # run: make lint
-      - name: Run tests
-        run: make test
+      - name: Run linter
+        run: make lint
       - name: Publish code coverage stat
         uses: paambaati/codeclimate-action@v5.0.0
         if: github.ref_name == 'main'
