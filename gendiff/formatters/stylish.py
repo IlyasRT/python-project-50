@@ -3,6 +3,7 @@ ADD = '+ '
 DELETE = '- '
 NONE = '  '
 
+
 def to_str(value, depth=2):
     if value is None:
         return "null"
@@ -18,6 +19,7 @@ def to_str(value, depth=2):
         end_indent = SEPARATOR * (depth + 2)
         return f"{{\n{formatted_string}\n{end_indent}}}"
     return f"{value}"
+
 
 def make_stylish_result(diff, depth=1):
     indent = SEPARATOR * depth
@@ -40,9 +42,8 @@ def make_stylish_result(diff, depth=1):
                 lines.append(f"{indent}{ADD}{key_name}: {new_value}")
             case "nested":
                 children = make_stylish_result(
-                    item.get("children"), depth + 1
-                )
-                lines.append(f"{indent}{NONE}{key_name}: {children}")        
+                    item.get("children"), depth + 1)
+                lines.append(f"{indent}{NONE}{key_name}: {children}")
     formatted_string = '\n'.join(lines)
     end_indent = SEPARATOR * (depth - 2)
     return f"{{\n{formatted_string}\n{end_indent}}}"

@@ -44,7 +44,7 @@ def make_stylish_result(diff, depth=2):
                 children = make_stylish_result(
                     item.get("children"), depth + 4
                 )
-                lines.append(f"{indent}{NONE}{key_name}: {children}")        
+                lines.append(f"{indent}{NONE}{key_name}: {children}")
     formatted_string = '\n'.join(lines)
     end_indent = SEPARATOR * (depth - 2)
     return f"{{\n{formatted_string}\n{end_indent}}}"
