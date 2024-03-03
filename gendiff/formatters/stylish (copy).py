@@ -2,21 +2,15 @@ SEPARATOR = " "
 ADD = '+ '
 DELETE = '- '
 NONE = '  '
-DEFAULT_INDENT = 4
 
 
 def to_str(value, spaces_count=2):
-    print('===to_str')
     if value is None:
         return "null"
     if isinstance(value, bool):
         return str(value).lower()
     if isinstance(value, dict):
-<<<<<<< Updated upstream
-        indent = SEPARATOR * (depth + DEFAULT_INDENT)
-=======
         indent = SEPARATOR * (spaces_count + 4)
->>>>>>> Stashed changes
         lines = []
         for key, inner_value in value.items():
             formatted_value = to_str(inner_value, spaces_count + 4)
@@ -36,24 +30,6 @@ def make_stylish_result(diff, depth=1):
         old_value = to_str(item.get("old_value"), spaces_count)
         new_value = to_str(item.get("new_value"), spaces_count)
         action = item["action"]
-<<<<<<< Updated upstream
-        match action:
-            case "unchanged":
-                current_value = to_str(item.get("value"), depth)
-                lines.append(f"{indent}{NONE}{key_name}: {current_value}")
-            case "modified":
-                lines.append(f"{indent}{DELETE}{key_name}: {old_value}")
-                lines.append(f"{indent}{ADD}{key_name}: {new_value}")
-            case "deleted":
-                lines.append(f"{indent}{DELETE}{key_name}: {old_value}")
-            case "added":
-                lines.append(f"{indent}{ADD}{key_name}: {new_value}")
-            case "nested":
-                children = make_stylish_result(
-                    item.get("children"), depth + DEFAULT_INDENT
-                )
-                lines.append(f"{indent}{NONE}{key_name}: {children}")
-=======
         if action == "unchanged":
             current_value = to_str(item.get("value"), spaces_count)
             lines.append(f"{indent}{NONE}{key_name}: {current_value}")
@@ -69,7 +45,6 @@ def make_stylish_result(diff, depth=1):
                 item.get("children"), depth + 1
             )
             lines.append(f"{indent}{NONE}{key_name}: {children}")
->>>>>>> Stashed changes
     formatted_string = '\n'.join(lines)
     end_indent = SEPARATOR * (spaces_count - 2)
 
