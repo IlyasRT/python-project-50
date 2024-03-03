@@ -1,11 +1,11 @@
-SEPARATOR = " "
+SEPARATOR = "  "
 ADD = '+ '
 DELETE = '- '
 NONE = '  '
 DEFAULT_INDENT = 4
 
 
-def to_str(value, depth=2):
+def to_str(value, depth=1):
     if value is None:
         return "null"
     if isinstance(value, bool):
