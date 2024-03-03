@@ -11,7 +11,7 @@ def to_str(value, depth=2):
     if isinstance(value, bool):
         return str(value).lower()
     if isinstance(value, dict):
-        indent = SEPARATOR * (depth + 4)
+        indent = SEPARATOR * (depth + DEFAULT_INDENT)
         lines = []
         for key, inner_value in value.items():
             formatted_value = to_str(inner_value, depth + 4)
