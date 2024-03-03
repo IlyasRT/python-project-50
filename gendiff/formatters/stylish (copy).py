@@ -20,9 +20,10 @@ def to_str(value, spaces_count=2):
         return f"{{\n{formatted_string}\n{end_indent}}}"
     return f"{value}"
 
+
 # def make_stylish_result(diff, spaces_count=2):
 def make_stylish_result(diff, depth=1):
-    spaces_count = depth*2
+    spaces_count = depth * 2
     indent = SEPARATOR * spaces_count
     lines = []
     for item in diff:
