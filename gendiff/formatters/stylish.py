@@ -2,7 +2,6 @@ SEPARATOR = " "
 ADD = '+ '
 DELETE = '- '
 NONE = '  '
-DEFAULT_INDENT = 4
 
 
 def to_str(value, depth=2):
@@ -11,10 +10,10 @@ def to_str(value, depth=2):
     if isinstance(value, bool):
         return str(value).lower()
     if isinstance(value, dict):
-        indent = SEPARATOR * (depth + DEFAULT_INDENT)
+        indent = SEPARATOR * (depth + 4)
         lines = []
         for key, inner_value in value.items():
-            formatted_value = to_str(inner_value, depth + DEFAULT_INDENT)
+            formatted_value = to_str(inner_value, depth + 4)
             lines.append(f"{indent}{NONE}{key}: {formatted_value}")
         formatted_string = '\n'.join(lines)
         end_indent = SEPARATOR * (depth + 2)
@@ -43,7 +42,7 @@ def make_stylish_result(diff, depth=2):
                 lines.append(f"{indent}{ADD}{key_name}: {new_value}")
             case "nested":
                 children = make_stylish_result(
-                    item.get("children"), depth + DEFAULT_INDENT
+                    item.get("children"), depth + 4
                 )
                 lines.append(f"{indent}{NONE}{key_name}: {children}")
     formatted_string = '\n'.join(lines)
