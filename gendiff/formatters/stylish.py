@@ -14,7 +14,11 @@ def to_str(value, spaces_count=2, depth=1):
         indent = SEPARATOR * (spaces_count + DEFAULT_INDENT)
         lines = []
         for key, inner_value in value.items():
-            formatted_value = to_str(inner_value, spaces_count + DEFAULT_INDENT, depth)
+            formatted_value = to_str(
+                inner_value,
+                spaces_count + DEFAULT_INDENT,
+                depth
+            )
             lines.append(f"{indent}{NONE}{key}: {formatted_value}")
         formatted_string = '\n'.join(lines)
         end_indent = SEPARATOR * (spaces_count + 2)
@@ -25,8 +29,8 @@ def to_str(value, spaces_count=2, depth=1):
 
 def make_stylish_result(diff, spaces_count=2, depth=1):
     # indent = SEPARATOR * spaces_count
-    indent = SEPARATOR * (depth*DEFAULT_INDENT-2)
-    # print('depth=',depth,'spaces_count=',spaces_count, len(indent))
+    indent = SEPARATOR * (depth * DEFAULT_INDENT - 2)
+    # print('depth=',depth,'spaces_count=', spaces_count, len(indent))
     lines = []
     for item in diff:
         key_name = item['name']
