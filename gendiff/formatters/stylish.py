@@ -5,49 +5,49 @@ NONE = '  '
 DEFAULT_INDENT = 4
 
 
-def to_str(value, depth=2):
+def to_str(value, spaces_count=2, depth=1):
     if value is None:
         return "null"
     if isinstance(value, bool):
         return str(value).lower()
     if isinstance(value, dict):
-        indent = SEPARATOR * (depth + DEFAULT_INDENT)
+        indent = SEPARATOR * (spaces_count + 4)
         lines = []
         for key, inner_value in value.items():
-            formatted_value = to_str(inner_value, depth + DEFAULT_INDENT)
+            formatted_value = to_str(inner_value, spaces_count + 4, depth + 1)
             lines.append(f"{indent}{NONE}{key}: {formatted_value}")
         formatted_string = '\n'.join(lines)
-        end_indent = SEPARATOR * (depth + 2)
+        end_indent = SEPARATOR * (spaces_count + 2)
         return f"{{\n{formatted_string}\n{end_indent}}}"
     return f"{value}"
 
 
-def make_stylish_result(diff, depth=2):
-    indent = SEPARATOR * depth
+def make_stylish_result(diff, spaces_count=2, depth=1):
+    indent = SEPARATOR * spaces_count
     lines = []
     for item in diff:
         key_name = item['name']
-        old_value = to_str(item.get("old_value"), depth)
-        new_value = to_str(item.get("new_value"), depth)
+        old_value = to_str(item.get("old_value"), spaces_count)
+        new_value = to_str(item.get("new_value"), spaces_count)
         action = item["action"]
-        match action:
-            case "unchanged":
-                current_value = to_str(item.get("value"), depth)
-                lines.append(f"{indent}{NONE}{key_name}: {current_value}")
-            case "modified":
-                lines.append(f"{indent}{DELETE}{key_name}: {old_value}")
-                lines.append(f"{indent}{ADD}{key_name}: {new_value}")
-            case "deleted":
-                lines.append(f"{indent}{DELETE}{key_name}: {old_value}")
-            case "added":
-                lines.append(f"{indent}{ADD}{key_name}: {new_value}")
-            case "nested":
-                children = make_stylish_result(
-                    item.get("children"), depth + DEFAULT_INDENT
-                )
-                lines.append(f"{indent}{NONE}{key_name}: {children}")
+        if action == "unchanged":
+            current_value = to_str(item.get("value"), spaces_count, depth)
+            lines.append(f"{indent}{NONE}{key_name}: {current_value}")
+        elif action == "modified":
+            lines.append(f"{indent}{DELETE}{key_name}: {old_value}")
+            lines.append(f"{indent}{ADD}{key_name}: {new_value}")
+        elif action == "deleted":
+            lines.append(f"{indent}{DELETE}{key_name}: {old_value}")
+        elif action == "added":
+            lines.append(f"{indent}{ADD}{key_name}: {new_value}")
+        elif action == 'nested':
+            children = make_stylish_result(
+                item.get("children"), depth + 1, spaces_count + 4
+            )
+            lines.append(f"{indent}{NONE}{key_name}: {children}")
     formatted_string = '\n'.join(lines)
-    end_indent = SEPARATOR * (depth - 2)
+    end_indent = SEPARATOR * (spaces_count - 2)
+
     return f"{{\n{formatted_string}\n{end_indent}}}"
 
 
