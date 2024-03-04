@@ -24,7 +24,8 @@ def to_str(value, spaces_count=2, depth=1):
 
 
 def make_stylish_result(diff, spaces_count=2, depth=1):
-    indent = SEPARATOR * spaces_count
+    # indent = SEPARATOR * spaces_count
+    indent = SEPARATOR * (depth*DEFAULT_INDENT-2)
     # print('depth=',depth,'spaces_count=',spaces_count, len(indent))
     lines = []
     for item in diff:
