@@ -12,6 +12,7 @@ def to_str(value, spaces_count=2, depth=1):
         return str(value).lower()
     if isinstance(value, dict):
         indent = SEPARATOR * (spaces_count + DEFAULT_INDENT)
+        print('len(indent)=', len(indent), 'depth=',depth,'spaces_count=',spaces_count)
         # indent = SEPARATOR * (depth * DEFAULT_INDENT + 2)
         lines = []
         for key, inner_value in value.items():
