@@ -34,8 +34,8 @@ def make_stylish_result(diff, spaces_count=2, depth=1):
     lines = []
     for item in diff:
         key_name = item['name']
-        old_value = to_str(item.get("old_value"), spaces_count)
-        new_value = to_str(item.get("new_value"), spaces_count)
+        old_value = to_str(item.get("old_value"), spaces_count, depth)
+        new_value = to_str(item.get("new_value"), spaces_count, depth)
         action = item["action"]
         match action:
             case "unchanged":
