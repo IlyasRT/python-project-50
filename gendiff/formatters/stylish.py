@@ -5,7 +5,7 @@ NONE = '  '
 DEFAULT_INDENT = 4
 
 
-def to_str(value, spaces_count=2, depth=1):
+def to_str(value,depth=1):
     if value is None:
         return "null"
     if isinstance(value, bool):
@@ -16,7 +16,6 @@ def to_str(value, spaces_count=2, depth=1):
         for key, inner_value in value.items():
             formatted_value = to_str(
                 inner_value,
-                spaces_count + DEFAULT_INDENT,
                 depth + 1
             )
             lines.append(f"{indent}{NONE}{key}: {formatted_value}")
@@ -31,12 +30,12 @@ def make_stylish_result(diff, depth=1):
     lines = []
     for item in diff:
         key_name = item['name']
-        old_value = to_str(item.get("old_value"), spaces_count, depth)
-        new_value = to_str(item.get("new_value"), spaces_count, depth)
+        old_value = to_str(item.get("old_value"), depth)
+        new_value = to_str(item.get("new_value"), depth)
         action = item["action"]
         match action:
             case "unchanged":
-                current_value = to_str(item.get("value"), spaces_count, depth)
+                current_value = to_str(item.get("value"), depth)
                 lines.append(f"{indent}{NONE}{key_name}: {current_value}")
             case "modified":
                 lines.append(f"{indent}{DELETE}{key_name}: {old_value}")
