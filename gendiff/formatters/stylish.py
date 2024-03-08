@@ -12,7 +12,7 @@ def to_str(value, spaces_count=2, depth=1):
         return str(value).lower()
     if isinstance(value, dict):
         # indent = SEPARATOR * (spaces_count + DEFAULT_INDENT)
-        indent = SEPARATOR * (depth * DEFAULT_INDENT)
+        indent = SEPARATOR * (depth * DEFAULT_INDENT+2)
         # indent = SEPARATOR * (depth * DEFAULT_INDENT)
         # indent = SEPARATOR * (depth * DEFAULT_INDENT + 2)
         lines = []
