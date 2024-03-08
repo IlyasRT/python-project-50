@@ -5,7 +5,8 @@ NONE = '  '
 DEFAULT_INDENT = 4
 
 
-def to_str(value, spaces_count=2, depth=1):
+# def to_str(value, spaces_count=2, depth=1):
+def to_str(value, depth=1):
     if value is None:
         return "null"
     if isinstance(value, bool):
@@ -15,6 +16,10 @@ def to_str(value, spaces_count=2, depth=1):
         lines = []
         for key, inner_value in value.items():
             formatted_value = to_str(
+                inner_value,
+                depth + 1
+            )
+            # formatted_value = to_str(
                 inner_value,
                 spaces_count + DEFAULT_INDENT,
                 depth + 1
