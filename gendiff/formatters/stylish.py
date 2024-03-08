@@ -15,10 +15,8 @@ def to_str(value, depth=1):
         indent = SEPARATOR * (depth * DEFAULT_INDENT + 2)
         lines = []
         for key, inner_value in value.items():
-            formatted_value = to_str(
-                inner_value,
-                depth + 1
-            )            lines.append(f"{indent}{NONE}{key}: {formatted_value}")
+            formatted_value = to_str(inner_value, depth + 1)
+            lines.append(f"{indent}{NONE}{key}: {formatted_value}")
         formatted_string = '\n'.join(lines)
         end_indent = SEPARATOR * (4 * depth)
         return f"{{\n{formatted_string}\n{end_indent}}}"
