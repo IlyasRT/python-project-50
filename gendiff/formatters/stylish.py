@@ -5,7 +5,7 @@ NONE = '  '
 DEFAULT_INDENT = 4
 
 
-def to_str(value, spaces_count=2, depth=1):
+def to_str(value, spaces_count=2, depth):
     if value is None:
         return "null"
     if isinstance(value, bool):
