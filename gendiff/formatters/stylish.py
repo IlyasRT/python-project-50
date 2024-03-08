@@ -18,7 +18,6 @@ def to_str(value, spaces_count=2, depth=1):
                 inner_value,
                 spaces_count + DEFAULT_INDENT,
                 depth + 1
-                
             )
             lines.append(f"{indent}{NONE}{key}: {formatted_value}")
         formatted_string = '\n'.join(lines)
