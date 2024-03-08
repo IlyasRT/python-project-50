@@ -11,10 +11,7 @@ def to_str(value, spaces_count=2, depth=1):
     if isinstance(value, bool):
         return str(value).lower()
     if isinstance(value, dict):
-        # indent = SEPARATOR * (spaces_count + DEFAULT_INDENT)
         indent = SEPARATOR * (depth * DEFAULT_INDENT + 2)
-        # indent = SEPARATOR * (depth * DEFAULT_INDENT)
-        # indent = SEPARATOR * (depth * DEFAULT_INDENT + 2)
         lines = []
         for key, inner_value in value.items():
             formatted_value = to_str(
@@ -25,7 +22,6 @@ def to_str(value, spaces_count=2, depth=1):
             lines.append(f"{indent}{NONE}{key}: {formatted_value}")
         formatted_string = '\n'.join(lines)
         end_indent = SEPARATOR * (4 * depth)
-        # end_indent = SEPARATOR * (spaces_count + 2)
         return f"{{\n{formatted_string}\n{end_indent}}}"
     return f"{value}"
 
