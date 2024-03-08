@@ -21,7 +21,8 @@ def to_str(value, spaces_count=2, depth=1):
             )
             lines.append(f"{indent}{NONE}{key}: {formatted_value}")
         formatted_string = '\n'.join(lines)
-        end_indent = SEPARATOR * ((depth * DEFAULT_INDENT - 2) + 2)
+        end_indent = SEPARATOR * (4 * depth)
+        # end_indent = SEPARATOR * ((depth * DEFAULT_INDENT - 2) + 2)
         return f"{{\n{formatted_string}\n{end_indent}}}"
     return f"{value}"
 
